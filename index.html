@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바이브코딩 (Vibe Coding) - 코딩의 새로운 패러다임</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #ec4899;
+            --background: #0f172a;
+            --surface: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 3rem;
+            animation: fadeUp 1s ease-out 0.2s backwards;
+            word-break: keep-all;
+        }
+
+        .cta-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeUp 1s ease-out 0.4s backwards;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(168, 85, 247, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 16px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            word-break: keep-all;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ambient background glow */
+        .glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .glow-1 {
+            top: 10%;
+            left: 10%;
+            width: 400px;
+            height: 400px;
+            background: var(--primary);
+        }
+
+        .glow-2 {
+            bottom: 10%;
+            right: 10%;
+            width: 500px;
+            height: 500px;
+            background: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            .card-icon {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <section class="hero">
+        <h1 class="gradient-text">Vibe Coding</h1>
+        <p class="subtitle">직접 타이핑하는 시대는 지났습니다.<br>이제 자연어로 AI와 소통하며 당신의 '바이브'만으로 완벽한 소프트웨어를 창조하세요.</p>
+        <a href="#features" class="cta-button">경험해보기</a>
+    </section>
+
+    <section id="features" class="features">
+        <h2 class="section-title">왜 <span class="gradient-text">바이브코딩</span>인가요?</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🗣️</div>
+                <h3>자연어 프롬프팅</h3>
+                <p>복잡한 프로그래밍 언어의 문법을 외울 필요가 없습니다. 일상적인 언어로 당신이 원하는 기능을 설명하면, AI가 최적화된 코드로 즉각 변환해 줍니다.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>초고속 프로토타이핑</h3>
+                <p>머릿속 아이디어를 실제 작동하는 애플리케이션으로 구현하는 시간이 획기적으로 줄어듭니다. 개발 장벽 없이 생각의 속도에 맞춰 제품을 출시하세요.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h3>AI 페어 프로그래밍</h3>
+                <p>당신만의 뛰어난 시니어 개발자와 함께 일하는 것과 같습니다. 실시간으로 버그를 찾고, 코드를 최적화하며 더 나은 소프트웨어 아키텍처를 설계합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Scroll animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card, .section-title').forEach((el, index) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
